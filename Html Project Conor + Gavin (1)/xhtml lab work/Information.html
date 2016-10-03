@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>header, info, nav, box{display: block;}
+body{
+color:Red;
+background-image: url("grey.jpg");
+background-size: 100%;
+}
+.wrapper {
+				width: 1050px;
+				margin: 20px auto 20px auto;
+				border: 2px solid #000000;
+				background-color: #ff0000;}
+				
+				h1 {text-align:center;}
+h1 {color:#000000;}
+h1 {font-size:350%}
+h1{font-family:"freestyle script", Times, serif;}
+h2 {text-align:center;}
+h2 {color:#000000;}
+h2 {font-size:200%}
+h2 { position: relative; 
+	 Top:0px;
+	left: 5px;
+	}
+h3 {color:#000000;}
+
+p {color:#000000;}
+				body { background-color:#FFF}
+nav, footer {
+				clear: both;
+				color: #ffffff;
+				background-color: #aeaca8;
+				height: 30px;}
+			nav ul {
+				margin: 0px;
+				padding: 5px 0px 5px 30px;}
+			nav li {
+				display: inline;
+				margin-right: 40px;}
+			nav li a {
+				color: #ffffff;}
+			nav li a:hover, nav li a.current {
+				color: #000000;}
+
+
+section.info {
+
+				float: center;
+				width: 1050px;
+				border-right: 1px solid #eeeeee;
+				position: relative; 
+				Top:70px;
+				left: 95px;
+				background-color: #FF0000;
+				
+				}	</style>
+	<meta charset="utf-8">
+	<title>Information</title>
+	
+	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+	<script>
+	 var map;
+	 var latitude=53.350474;
+	 var longitude=-6.256288;
+	 
+	 var map;
+	 var latitude=53.4590;
+	 var longitude=-6.2199;
+	
+   // Create a Google Maps Geocoder object
+	 var geocoder = new google.maps.Geocoder();
+	 // Google Maps global map variable
+	function initialize() {
+       
+
+	    // Change coordinates into a location 
+	    var yourLocation = new google.maps.LatLng(latitude, longitude);
+      printAddress(yourLocation);
+	
+		//Setup map and position on map
+    	var myOptions = {
+        	zoom: 15,
+        	mapTypeId: google.maps.MapTypeId.ROADMAP,
+        	center: yourLocation
+    	}
+    	map = new google.maps.Map(document.getElementById("map"), myOptions);
+
+		// To add the marker to the map set it up then call setMap();
+		var marker = new google.maps.Marker({
+		    position: yourLocation,
+		    title:"McGuinns Movies"
+		});
+			
+		marker.setMap(map);
+		
+		var marker = new google.maps.LatLng(53.351243, -6.251233);
+		var marker = new google.maps.Marker({
+		    position: dartLocation,
+		    title:"Mcguinns Movies"
+		});
+			
+		dartmarker.setMap(map);
+		}
+
+	// use Google Maps API to reverse geocode your location
+	function printAddress(yourLocation) {
+	   
+
+	    // Use Google maps to find out about the location
+	    geocoder.geocode({ 'latLng': yourLocation }, function (results, status) {
+	        if (status == google.maps.GeocoderStatus.OK) {
+	            if (results[0]) {
+	                document.getElementById('local').innerHTML = 'Your Address:<br />' +
+	                    results[0].formatted_address;
+	            } else {
+	                error('Google did not return any results.');
+	            }
+	        } else {
+	            error("Reverse Geocoding failed due to: " + status);
+	        }
+	    });
+	}
+
+	function error(msg) {
+	    alert(msg);
+	}
+
+
+	</script>
+	
+	
+</head>
+
+<body onload="initialize()">
+<div class="wrapper">
+			<header>
+				<h1>MCGUINNS MOVIES</h1>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="1dvdpage.html">DVDS</a></li>
+						<li><a href="musicpage.html">Music</a></li>
+						<li><a href="gamespage.html">Games</a></li>
+						<li><a href=""class="current">Information</a></li>
+					</ul>
+					<h2> Information </h2>
+				</nav>
+				</header>
+</div>
+	
+<section class="info">
+	<div id="info">
+ 	<p id = "local">Your location is: </p>
+	
+	<div id="map" style="width:450px; height:300px">
+		
+	</div>
+	<p> <b>Contact Us</b></br>
+	    MCGUINNS MOVIES</br>
+		Main Street,</br>
+		Swords,</br>
+		Dublin</br>
+		Tel:014275500</br>
+		Email:MCGUINNSMOVIES@gmail.com</br>
+	
+		</p>
+	</div>
+	</body>
+</html>
